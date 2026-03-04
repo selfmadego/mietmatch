@@ -9,10 +9,8 @@ Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
 
 <div class="card">
 
-<form action="https://formspree.io/f/mbdanavy" method="POST">
-  
-<input type="hidden" name="_redirect" value="https://mietmatch-zuerich.ch/danke.html">
-  
+<form id="vermieterForm" action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
+
 <input type="hidden" name="lead_type" value="VERMIETER_WOHNUNG">
 
 <label>Name *</label>
@@ -31,7 +29,6 @@ Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
 <input type="text" name="zimmer" required style="width:100%;padding:10px;margin-bottom:12px">
 
 
-<!-- ✅ PRO-FELDER (von oben) -->
 <label>Wohnungsgrösse (m²)</label>
 <input type="number" name="qm" min="0" step="1" placeholder="z.B. 72" style="width:100%;padding:10px;margin-bottom:12px">
 
@@ -40,7 +37,6 @@ Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
 
 <label>Gewünschtes Haushaltseinkommen (CHF/Monat)</label>
 <input type="number" name="income_min" min="0" step="1" placeholder="z.B. 6500" style="width:100%;padding:10px;margin-bottom:12px">
-<!-- ✅ /PRO-FELDER -->
 
 
 <label>Monatsmiete (CHF) *</label>
@@ -97,7 +93,7 @@ Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
 <input type="checkbox" name="datenschutz" required style="margin-top:4px;">
 <span>
 Ich bestätige, dass meine Angaben zur Bearbeitung meiner Anfrage und zur Vermittlung geeigneter Mietinteressenten verwendet werden dürfen.
-Weitere Informationen in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.
+Weitere Informationen in der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>.
 </span>
 </label>
 </div>
@@ -116,3 +112,29 @@ Kontakt: <a href="mailto:info@mietmatch-zuerich.ch">info@mietmatch-zuerich.ch</a
 
 </div>
 </section>
+
+<script>
+const form = document.getElementById("vermieterForm");
+
+form.addEventListener("submit", async function(e) {
+
+e.preventDefault();
+
+const data = new FormData(form);
+
+const response = await fetch(form.action,{
+method:"POST",
+body:data,
+headers:{
+'Accept':'application/json'
+}
+});
+
+if(response.ok){
+window.location.href="danke.html";
+}else{
+alert("Senden fehlgeschlagen. Bitte nochmals versuchen.");
+}
+
+});
+</script>
