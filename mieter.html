@@ -32,8 +32,8 @@
 <h1>Schluss mit Bewerbungen ohne Antwort.</h1>
 
 <p class="sub">
-Du investierst Zeit, schreibst 20 Anfragen, gehst an Besichtigungen –
-und bekommst trotzdem Absagen.
+Du investierst Zeit, schreibst viele Anfragen und gehst an Besichtigungen –
+und bekommst trotzdem oft keine Antwort.
 MietMatch dreht den Prozess um.
 </p>
 
@@ -80,19 +80,24 @@ MietMatch dreht den Prozess um.
 </section>
 
 
+
 <section class="section" id="profil">
 
 <div class="container">
 
-<h2>Profil kostenlos erstellen</h2>
+<h2>Mieterprofil erstellen</h2>
 
 <p class="sub">
-Fülle dein Profil aus – wir melden uns bei passenden Wohnungen.
+Erstelle dein Profil – wir melden uns bei passenden Wohnungen.
 </p>
 
 <div class="card" style="margin-top:14px">
 
-<form action="https://formspree.io/f/mbdanavy" method="POST">
+<h3>👤 Mieterprofil</h3>
+
+<form action="https://formspree.io/f/xlgwqpaw" method="POST">
+
+<input type="hidden" name="lead_type" value="MIETER_PROFIL">
 
 <label>Name *</label>
 <input type="text" name="name" required style="width:100%;padding:10px;margin-bottom:12px">
@@ -106,14 +111,20 @@ Fülle dein Profil aus – wir melden uns bei passenden Wohnungen.
 <label>Monatliches Einkommen (CHF) *</label>
 <input type="number" name="einkommen" required style="width:100%;padding:10px;margin-bottom:12px">
 
+<label>Gewünschte Region *</label>
+<input type="text" name="region" placeholder="z.B. Zürich, Winterthur" required style="width:100%;padding:10px;margin-bottom:12px">
+
 <label>Einzugsdatum *</label>
 <input type="date" name="einzugsdatum" required style="width:100%;padding:10px;margin-bottom:12px">
 
 <label>Haushaltsgrösse *</label>
 <input type="number" name="haushalt" required style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>Gewünschte Region *</label>
-<input type="text" name="region" placeholder="z.B. Zürich, Winterthur" required style="width:100%;padding:10px;margin-bottom:12px">
+<label>Gewünschte Zimmerzahl</label>
+<input type="number" name="zimmer" style="width:100%;padding:10px;margin-bottom:12px">
+
+<label>Maximale Miete (CHF)</label>
+<input type="number" name="max_miete" style="width:100%;padding:10px;margin-bottom:12px">
 
 <label>Weitere Informationen</label>
 <textarea name="nachricht" rows="5" style="width:100%;padding:10px;margin-bottom:14px"></textarea>
@@ -136,13 +147,13 @@ Profil senden
 
 <div class="container">
 
-<h2>Wichtige Unterlagen für die Zulassung</h2>
+<h2>Unterlagen für die Freischaltung</h2>
 
 <div class="card">
 
 <p class="sub" style="margin:0">
-Nach dem Absenden deines Profils prüfen wir kurz deine Angaben.
-Für die endgültige Zulassung benötigen wir danach folgende Unterlagen:
+Nach dem Absenden prüfen wir dein Profil.
+Für die endgültige Freischaltung benötigen wir folgende Unterlagen:
 </p>
 
 <ul style="margin-top:12px">
@@ -161,7 +172,7 @@ Für die endgültige Zulassung benötigen wir danach folgende Unterlagen:
 
 <div>
 
-Bitte sende die Unterlagen an:
+Bitte sende diese Unterlagen an:
 
 <b>
 <a href="mailto:info@mietmatch-zuerich.ch">
@@ -195,10 +206,10 @@ Nur vollständige Profile können an Vermieter vermittelt werden.
 
 <p class="sub" style="margin:0">
 Mit der Registrierung willigst du ein, dass MietMatch deine Angaben
-zum Zweck der Vermittlung verarbeitet und diese im konkreten
-Vermittlungsfall an passende Vermieter übermittelt.
-Du kannst die Einwilligung jederzeit widerrufen und die Löschung
-deiner Daten verlangen.
+zum Zweck der Vermittlung verarbeitet und im konkreten Vermittlungsfall
+an passende Vermieter übermittelt.
+Du kannst die Einwilligung jederzeit widerrufen und die Löschung deiner
+Daten verlangen.
 </p>
 
 <div class="cta-row" style="margin-top:14px">
