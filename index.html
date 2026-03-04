@@ -5,12 +5,43 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MietMatch – Wohnung einreichen. Top-Mieter statt 30 Besichtigungen.</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- ===== Formular: überall gleiche Optik (fix für "hässliche Schrift") ===== -->
+  <style>
+    form label{
+      display:block;
+      font-weight:600;
+      margin:12px 0 6px;
+    }
+    form input, form select, form textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid #d9d9d9;
+      border-radius:10px;
+      font: inherit;
+      background:#fff;
+      box-sizing:border-box;
+      margin-bottom:12px;
+    }
+    form textarea{ min-height:120px; margin-bottom:14px; }
+    form input[type="file"]{ padding:8px; }
+    form input[type="checkbox"]{ width:auto; margin:0 8px 0 0; }
+    .dsg-check{
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      margin:10px 0 14px;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.4;
+    }
+  </style>
 </head>
 
 <body>
 
 <!-- =========================
-     NAV (Vermieter klar aktiv)
+     NAV (nur 2 CTAs!)
      ========================= -->
 <div class="nav">
   <div class="container nav-inner">
@@ -24,7 +55,8 @@
       <a href="mieter.html">Für Mieter</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#pilot">Pilotphase</a>
-      <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
+      <!-- Haupt-CTA -->
+      <a class="btn" href="#formular">Wohnung einreichen</a>
     </div>
 
   </div>
@@ -32,7 +64,7 @@
 
 
 <!-- =========================
-     HERO (CTA glasklar)
+     HERO (nur 2 Buttons)
      ========================= -->
 <header class="hero">
   <div class="container">
@@ -49,7 +81,7 @@
     </p>
 
     <div class="cta-row">
-      <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
+      <a class="btn" href="#formular">Wohnung einreichen</a>
       <a class="btn secondary" href="mieter.html">Für Mieter</a>
     </div>
 
@@ -62,7 +94,7 @@
 
 
 <!-- =========================
-     SPLIT (reduziert: keine extra Buttons)
+     SPLIT (ohne Buttons!)
      ========================= -->
 <section class="section alt">
   <div class="container">
@@ -74,9 +106,6 @@
         <p class="sub" style="margin:10px 0 0;">
           Wohnung einreichen und passende, vorqualifizierte Kandidaten erhalten.
         </p>
-        <div style="margin-top:12px;">
-          <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
-        </div>
       </div>
 
       <div class="card">
@@ -84,9 +113,6 @@
         <p class="sub" style="margin:10px 0 0;">
           Profil erstellen und nur bei passenden Wohnungen vorgeschlagen werden.
         </p>
-        <div style="margin-top:12px;">
-          <a class="btn secondary" href="mieter.html">Profil erstellen</a>
-        </div>
       </div>
 
     </div>
@@ -153,11 +179,6 @@
 
     </div>
 
-    <div style="margin-top:18px;">
-      <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
-      <a class="btn secondary" style="margin-left:8px;" href="mieter.html">Für Mieter</a>
-    </div>
-
   </div>
 </section>
 
@@ -185,10 +206,84 @@
       <div class="small" style="margin-top:10px;color:var(--muted);">
         Keine Provision bei reiner Vorstellung, keine Verpflichtung, keine Vorauszahlung.
       </div>
+    </div>
 
-      <div style="margin-top:16px;">
-        <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
+  </div>
+</section>
+
+
+<!-- =========================
+     FORMULAR (ID muss "formular" sein!)
+     ========================= -->
+<section class="section" id="formular">
+  <div class="container">
+
+    <h2>Wohnung einreichen</h2>
+
+    <p class="sub">
+      Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
+    </p>
+
+    <div class="card">
+
+      <form action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="lead_type" value="VERMIETER_WOHNUNG">
+
+        <label>Name *</label>
+        <input type="text" name="name" required>
+
+        <label>E-Mail *</label>
+        <input type="email" name="email" required>
+
+        <label>Telefon</label>
+        <input type="tel" name="telefon">
+
+        <label>Adresse der Wohnung *</label>
+        <input type="text" name="adresse" required>
+
+        <label>Anzahl Zimmer *</label>
+        <input type="text" name="zimmer" required>
+
+        <label>Monatsmiete (CHF) *</label>
+        <input type="number" name="miete" min="0" step="1" placeholder="z.B. 2200" required>
+
+        <!-- 3 Felder von oben -->
+        <label>Einzug ab</label>
+        <input type="date" name="einzug_ab">
+
+        <label>Haustiere erlaubt?</label>
+        <select name="haustiere">
+          <option value="">Bitte wählen</option>
+          <option value="Ja">Ja</option>
+          <option value="Nein">Nein</option>
+          <option value="Nach Absprache">Nach Absprache</option>
+        </select>
+
+        <label>Virtuelle Tour (Matterport / Video Link)</label>
+        <input type="url" name="tour_link" placeholder="https://...">
+
+        <label>Fotos der Wohnung</label>
+        <input type="file" name="fotos" accept="image/*" multiple>
+
+        <label>Weitere Informationen</label>
+        <textarea name="nachricht" rows="5" placeholder="z.B. Stockwerk, Lift, Parkplatz, Besonderheiten..."></textarea>
+
+        <!-- DSG Checkbox -->
+        <label class="dsg-check">
+          <input type="checkbox" name="dsg_ok" value="Ja" required>
+          <span>
+            Ich bestätige, dass meine Angaben zur Kontaktaufnahme und zur Vermittlung im Rahmen von MietMatch verarbeitet werden.
+            Details siehe <a href="datenschutz.html">Datenschutz</a>.
+          </span>
+        </label>
+
+        <button class="btn" type="submit">Wohnung senden</button>
+      </form>
+
+      <div class="small" style="margin-top:10px;color:var(--muted);">
+        Kontakt: <a href="mailto:info@mietmatch-zuerich.ch">info@mietmatch-zuerich.ch</a>
       </div>
+
     </div>
 
   </div>
