@@ -28,20 +28,51 @@ Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
 <label>Anzahl Zimmer *</label>
 <input type="text" name="zimmer" required style="width:100%;padding:10px;margin-bottom:12px">
 
+
+<!-- ✅ PRO-FELDER (von oben) -->
 <label>Wohnungsgrösse (m²)</label>
 <input type="number" name="qm" min="0" step="1" placeholder="z.B. 72" style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Monatsmiete (CHF) *</label>
-<input type="number" name="miete" min="0" step="1" placeholder="z.B. 2200" required style="width:100%;padding:10px;margin-bottom:12px">
 
 <label>Maximale Anzahl Personen</label>
 <input type="number" name="max_personen" min="1" step="1" placeholder="z.B. 2" style="width:100%;padding:10px;margin-bottom:12px">
 
 <label>Gewünschtes Haushaltseinkommen (CHF/Monat)</label>
 <input type="number" name="income_min" min="0" step="1" placeholder="z.B. 6500" style="width:100%;padding:10px;margin-bottom:12px">
+<!-- ✅ /PRO-FELDER -->
+
+
+<label>Monatsmiete (CHF) *</label>
+<input type="number" name="miete" min="0" step="1" placeholder="z.B. 2200" required style="width:100%;padding:10px;margin-bottom:12px">
+
+<label>Kaution (CHF)</label>
+<input type="number" name="kaution" min="0" step="1" placeholder="z.B. 6600" style="width:100%;padding:10px;margin-bottom:12px">
+
+<label>Mindestmietdauer (Monate)</label>
+<input type="number" name="mindestmietdauer" min="0" step="1" placeholder="z.B. 12" style="width:100%;padding:10px;margin-bottom:12px">
 
 <label>Einzugsdatum</label>
 <input type="date" name="einzugsdatum" style="width:100%;padding:10px;margin-bottom:12px">
+
+<label>Möbliert?</label>
+<select name="moebliert" style="width:100%;padding:10px;margin-bottom:12px">
+<option value="">Bitte wählen</option>
+<option value="ja">Ja</option>
+<option value="nein">Nein</option>
+</select>
+
+<label>WG erlaubt?</label>
+<select name="wg_erlaubt" style="width:100%;padding:10px;margin-bottom:12px">
+<option value="">Bitte wählen</option>
+<option value="ja">Ja</option>
+<option value="nein">Nein</option>
+</select>
+
+<label>Parkplatz / Garage verfügbar?</label>
+<select name="parkplatz" style="width:100%;padding:10px;margin-bottom:12px">
+<option value="">Bitte wählen</option>
+<option value="ja">Ja</option>
+<option value="nein">Nein</option>
+</select>
 
 <label>Haustiere erlaubt?</label>
 <select name="haustiere" style="width:100%;padding:10px;margin-bottom:12px">
