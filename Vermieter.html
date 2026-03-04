@@ -31,7 +31,7 @@ Eine Vermittlungsgebühr wird nur fällig, wenn ein durch MietMatch vorgeschlage
 
 <div class="card">
 
-<form action="https://formspree.io/f/mbdanavy" method="POST">
+<form action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
 
 <label>Name</label>
 <input type="text" name="name" required style="width:100%;padding:10px;margin-bottom:12px">
@@ -50,6 +50,24 @@ Eine Vermittlungsgebühr wird nur fällig, wenn ein durch MietMatch vorgeschlage
 
 <label>Monatsmiete (CHF)</label>
 <input type="text" name="miete" style="width:100%;padding:10px;margin-bottom:12px">
+
+
+<label>Einzugsdatum</label>
+<input type="date" name="einzugsdatum" style="width:100%;padding:10px;margin-bottom:12px">
+
+<label>Haustiere erlaubt?</label>
+<select name="haustiere" style="width:100%;padding:10px;margin-bottom:12px">
+<option value="">Bitte wählen</option>
+<option value="ja">Ja</option>
+<option value="nein">Nein</option>
+</select>
+
+<label>Virtuelle Tour (Matterport / Video Link)</label>
+<input type="url" name="tour_link" placeholder="https://..." style="width:100%;padding:10px;margin-bottom:12px">
+
+<label>Fotos der Wohnung</label>
+<input type="file" name="fotos" accept="image/*" multiple style="width:100%;padding:10px;margin-bottom:12px">
+
 
 <label>Weitere Informationen</label>
 <textarea name="nachricht" rows="5" style="width:100%;padding:10px;margin-bottom:14px"></textarea>
