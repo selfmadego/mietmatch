@@ -5,43 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MietMatch – Wohnung einreichen. Top-Mieter statt 30 Besichtigungen.</title>
   <link rel="stylesheet" href="styles.css">
-
-  <!-- ===== Formular: überall gleiche Optik (fix für "hässliche Schrift") ===== -->
-  <style>
-    form label{
-      display:block;
-      font-weight:600;
-      margin:12px 0 6px;
-    }
-    form input, form select, form textarea{
-      width:100%;
-      padding:10px;
-      border:1px solid #d9d9d9;
-      border-radius:10px;
-      font: inherit;
-      background:#fff;
-      box-sizing:border-box;
-      margin-bottom:12px;
-    }
-    form textarea{ min-height:120px; margin-bottom:14px; }
-    form input[type="file"]{ padding:8px; }
-    form input[type="checkbox"]{ width:auto; margin:0 8px 0 0; }
-    .dsg-check{
-      display:flex;
-      align-items:flex-start;
-      gap:8px;
-      margin:10px 0 14px;
-      font-size:14px;
-      color:var(--muted);
-      line-height:1.4;
-    }
-  </style>
 </head>
 
 <body>
 
 <!-- =========================
-     NAV (nur 2 CTAs!)
+     NAV (Vermieter aktiv)
      ========================= -->
 <div class="nav">
   <div class="container nav-inner">
@@ -55,8 +24,7 @@
       <a href="mieter.html">Für Mieter</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#pilot">Pilotphase</a>
-      <!-- Haupt-CTA -->
-      <a class="btn" href="#formular">Wohnung einreichen</a>
+      <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
     </div>
 
   </div>
@@ -64,7 +32,7 @@
 
 
 <!-- =========================
-     HERO (nur 2 Buttons)
+     HERO (nur 2 CTAs)
      ========================= -->
 <header class="hero">
   <div class="container">
@@ -81,7 +49,7 @@
     </p>
 
     <div class="cta-row">
-      <a class="btn" href="#formular">Wohnung einreichen</a>
+      <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
       <a class="btn secondary" href="mieter.html">Für Mieter</a>
     </div>
 
@@ -94,7 +62,7 @@
 
 
 <!-- =========================
-     SPLIT (ohne Buttons!)
+     SPLIT (ohne Buttons)
      ========================= -->
 <section class="section alt">
   <div class="container">
@@ -206,23 +174,31 @@
       <div class="small" style="margin-top:10px;color:var(--muted);">
         Keine Provision bei reiner Vorstellung, keine Verpflichtung, keine Vorauszahlung.
       </div>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- =========================
-     FORMULAR (ID muss "formular" sein!)
+     CTA unten (kein Formular!)
      ========================= -->
 <section class="section" id="formular">
-  <div class="container">
+  <div class="container" style="text-align:center;max-width:700px;margin:auto;">
 
     <h2>Wohnung einreichen</h2>
 
     <p class="sub">
-      Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
+      Starten Sie jetzt – wir melden uns innerhalb von 24–48 Stunden.
     </p>
 
-    <div class="card">
+    <div style="margin-top:18px;">
+      <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
+    </div>
 
-      <form action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="lead_type" value="VERMIETER_WOHNUNG">
+  </div>
+</section>
+
 
 <!-- =========================
      FOOTER
