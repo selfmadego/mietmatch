@@ -3,18 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>MietMatch – Wohnung einreichen. Top-Mieter statt 30 Besichtigungen.</title>
+  <title>MietMatch – Wohnung kostenlos einreichen. Top-Mieter statt 30 Besichtigungen.</title>
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* CTA-Boost ohne dein CSS zu zerstören */
+    .btn.cta-strong{
+      padding:14px 22px;
+      font-size:16px;
+      font-weight:800;
+      box-shadow:0 14px 28px rgba(37,99,235,.22);
+      letter-spacing:.2px;
+    }
+    .hero-usp{
+      margin-top:14px;
+      padding:12px 14px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+    }
+    .hero-usp b{ color:var(--text); }
+    .benefits{
+      display:grid;
+      gap:14px;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      margin-top:14px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:#fff;
+      color:var(--muted);
+      font-size:13px;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- =========================
-     NAV (Vermieter aktiv)
-     ========================= -->
 <div class="nav">
   <div class="container nav-inner">
-
     <a class="brand" href="index.html">
       <img src="mietmatch-logo.svg" alt="MietMatch Logo">
     </a>
@@ -24,32 +56,26 @@
       <a href="mieter.html">Für Mieter</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#pilot">Pilotphase</a>
-      <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
+      <a class="btn cta-strong" href="Vermieter.html">Wohnung kostenlos einreichen</a>
     </div>
-
   </div>
 </div>
 
 
-<!-- =========================
-     HERO (nur 2 CTAs)
-     ========================= -->
 <header class="hero">
   <div class="container">
 
-    <div class="kicker">
-      ✅ Vorqualifizierung vor Besichtigung · 📍 Raum Zürich
-    </div>
+    <div class="pill">✅ Vorqualifizierung vor Besichtigung · 📍 Raum Zürich</div>
 
-    <h1>Wohnung einreichen. Nur passende Mieterprofile erhalten.</h1>
+    <h1>Wohnung kostenlos einreichen. Nur passende Mieterprofile erhalten.</h1>
 
     <p class="sub">
-      MietMatch filtert vor der Besichtigung nach Budget & Basis-Fit.
-      Sie sparen Zeit, reduzieren No-Shows und bekommen strukturierte Kandidaten.
+      MietMatch ist <b>kein Wohnungsportal</b>.<br>
+      MietMatch ist ein <b>Filter-Service für Vermieter</b> – weniger Besichtigungen, bessere Treffer.
     </p>
 
     <div class="cta-row">
-      <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
+      <a class="btn cta-strong" href="Vermieter.html">Wohnung kostenlos einreichen</a>
       <a class="btn secondary" href="mieter.html">Für Mieter</a>
     </div>
 
@@ -57,152 +83,94 @@
       Pilotphase: <b>99 CHF nur bei erfolgreicher Vermittlung</b> · Keine Vorauszahlung
     </div>
 
+    <div class="hero-usp">
+      <div class="small">
+        <b>Virtuelle Tour vor der Besichtigung:</b> Interessenten sehen die Wohnung zuerst digital (Matterport/Video).<br>
+        Besichtigungen finden nur mit passenden Kandidaten statt.
+      </div>
+    </div>
+
   </div>
 </header>
 
 
-<!-- =========================
-     SPLIT (ohne Buttons)
-     ========================= -->
 <section class="section alt">
   <div class="container">
 
-    <div class="grid steps" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+    <h2>Warum das funktioniert</h2>
+    <p class="sub">Sie geben die Wohnung ein – wir liefern strukturierte Kandidaten. Kein Spam, kein Besichtigungsmarathon.</p>
 
+    <div class="benefits">
       <div class="card">
-        <h3 style="margin-top:0;">Für Vermieter</h3>
-        <p class="sub" style="margin:10px 0 0;">
-          Wohnung einreichen und passende, vorqualifizierte Kandidaten erhalten.
-        </p>
+        <h3 style="margin-top:0;">Weniger Besichtigungen</h3>
+        <p>Vorqualifiziert nach Budget & Basis-Fit – keine 30 Termine mehr.</p>
       </div>
-
       <div class="card">
-        <h3 style="margin-top:0;">Für Mieter</h3>
-        <p class="sub" style="margin:10px 0 0;">
-          Profil erstellen und nur bei passenden Wohnungen vorgeschlagen werden.
-        </p>
+        <h3 style="margin-top:0;">Bessere Kandidaten</h3>
+        <p>Strukturierte Profile statt chaotische Nachrichten und No-Shows.</p>
       </div>
-
+      <div class="card">
+        <h3 style="margin-top:0;">Tour optional (Matterport)</h3>
+        <p>Erst digital anschauen, dann nur noch passende Kandidaten einladen.</p>
+      </div>
     </div>
 
   </div>
 </section>
 
 
-<!-- =========================
-     PROBLEM
-     ========================= -->
-<section class="section">
-  <div class="container">
-    <h2>Das Problem</h2>
-    <p class="sub">
-      Der aktuelle Vermietungsprozess ist ineffizient: zu viele Anfragen,
-      zu viele Termine, zu wenig passende Kandidaten.
-    </p>
-  </div>
-</section>
-
-
-<!-- =========================
-     LÖSUNG
-     ========================= -->
-<section class="section alt">
-  <div class="container">
-    <h2>Die Lösung</h2>
-    <p class="sub">
-      MietMatch übernimmt die Vorqualifizierung.
-      Sie erhalten nur passende Bewerber – strukturiert, vergleichbar und mit realistischen Chancen.
-    </p>
-  </div>
-</section>
-
-
-<!-- =========================
-     ABLAUF
-     ========================= -->
 <section class="section" id="ablauf">
   <div class="container">
-
     <h2>So funktioniert es</h2>
 
     <div class="grid steps">
-
       <div class="card">
         <div class="step-num">1</div>
         <h3>Wohnung einreichen</h3>
-        <p>Sie übermitteln die Eckdaten Ihrer Wohnung.</p>
+        <p>Sie übermitteln die Eckdaten + optional Tour/Fotos.</p>
       </div>
-
       <div class="card">
         <div class="step-num">2</div>
         <h3>Vorqualifizierung</h3>
-        <p>MietMatch filtert passende Mietinteressenten (Budget & Basis-Fit).</p>
+        <p>Wir filtern Kandidaten nach Budget & Basis-Fit.</p>
       </div>
-
       <div class="card">
         <div class="step-num">3</div>
         <h3>Sie entscheiden</h3>
-        <p>Sie laden nur passende Kandidaten ein – weniger Termine, bessere Treffer.</p>
+        <p>Sie laden nur passende Kandidaten ein.</p>
       </div>
-
     </div>
 
   </div>
 </section>
 
 
-<!-- =========================
-     PREISMODELL (Pilot)
-     ========================= -->
 <section class="section alt" id="pilot">
   <div class="container">
-
     <h2>Pilotphase Zürich</h2>
 
     <div class="card" style="margin-top:14px;">
       <h3 style="margin-top:0;">Preismodell</h3>
-
       <p class="sub" style="margin:0;">
-        Für Vermieter ist der Einstieg risikofrei:
         <b>Kosten entstehen nur, wenn ein durch MietMatch vorgeschlagener Kandidat die Wohnung erhält.</b>
       </p>
-
       <div style="margin-top:12px;">
-        <b>Pilotphase Zürich:</b> <span style="color:var(--blue);font-weight:700;">99 CHF</span> pro erfolgreicher Vermittlung.
+        <b>Pilotphase Zürich:</b> <span style="color:var(--blue);font-weight:800;">99 CHF</span> pro erfolgreicher Vermittlung.
       </div>
-
       <div class="small" style="margin-top:10px;color:var(--muted);">
-        Keine Provision bei reiner Vorstellung, keine Verpflichtung, keine Vorauszahlung.
+        Keine Vorauszahlung · Keine Verpflichtung · Keine Provision bei reiner Vorstellung
       </div>
     </div>
 
-  </div>
-</section>
-
-
-<!-- =========================
-     CTA unten (kein Formular!)
-     ========================= -->
-<section class="section" id="formular">
-  <div class="container" style="text-align:center;max-width:700px;margin:auto;">
-
-    <h2>Wohnung einreichen</h2>
-
-    <p class="sub">
-      Starten Sie jetzt – wir melden uns innerhalb von 24–48 Stunden.
-    </p>
-
-    <div style="margin-top:18px;">
-      <a class="btn" href="Vermieter.html#formular">Wohnung einreichen</a>
+    <div class="cta-row" style="margin-top:16px;">
+      <a class="btn cta-strong" href="Vermieter.html">Wohnung kostenlos einreichen</a>
+      <a class="btn secondary" href="mieter.html">Infos für Mieter</a>
     </div>
 
   </div>
 </section>
 
 
-<!-- =========================
-     FOOTER
-     ========================= -->
 <div class="hr"></div>
 
 <div class="footer container">
