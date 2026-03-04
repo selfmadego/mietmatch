@@ -1,56 +1,35 @@
 <section class="section" id="formular">
-
 <div class="container">
 
-<h2>Wohnung kostenlos einreichen</h2>
+<h2>Wohnung einreichen</h2>
 
 <p class="sub">
-Einfach starten – wir melden uns innerhalb von 24-48 Stunden.
+Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
 </p>
-
-<div class="card" style="margin-bottom:25px;">
-
-<h3>Für Vermieter</h3>
-
-<p style="margin-top:10px;">
-Die Nutzung von <b>MietMatch</b> ist kostenlos.<br>
-Kosten entstehen nur, wenn ein von MietMatch vorgeschlagener Kandidat erfolgreich die Wohnung erhält.
-</p>
-
-<p style="margin-top:12px;">
-<b>Pilotphase Zürich:</b><br>
-99 CHF pro erfolgreicher Vermittlung.
-</p>
-
-<p style="margin-top:12px;font-size:14px;color:#666;">
-Eine Vermittlungsgebühr wird nur fällig, wenn ein durch MietMatch vorgeschlagener Mietinteressent einen Mietvertrag erhält.
-</p>
-
-</div>
-
 
 <div class="card">
 
 <form action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
 
-<label>Name</label>
+<input type="hidden" name="lead_type" value="VERMIETER_WOHNUNG">
+
+<label>Name *</label>
 <input type="text" name="name" required style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>E-Mail</label>
+<label>E-Mail *</label>
 <input type="email" name="email" required style="width:100%;padding:10px;margin-bottom:12px">
 
 <label>Telefon</label>
 <input type="tel" name="telefon" style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>Adresse der Wohnung</label>
+<label>Adresse der Wohnung *</label>
 <input type="text" name="adresse" required style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>Anzahl Zimmer</label>
-<input type="text" name="zimmer" style="width:100%;padding:10px;margin-bottom:12px">
+<label>Anzahl Zimmer *</label>
+<input type="text" name="zimmer" required style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>Monatsmiete (CHF)</label>
-<input type="text" name="miete" style="width:100%;padding:10px;margin-bottom:12px">
-
+<label>Monatsmiete (CHF) *</label>
+<input type="text" name="miete" required style="width:100%;padding:10px;margin-bottom:12px">
 
 <label>Einzugsdatum</label>
 <input type="date" name="einzugsdatum" style="width:100%;padding:10px;margin-bottom:12px">
@@ -68,9 +47,20 @@ Eine Vermittlungsgebühr wird nur fällig, wenn ein durch MietMatch vorgeschlage
 <label>Fotos der Wohnung</label>
 <input type="file" name="fotos" accept="image/*" multiple style="width:100%;padding:10px;margin-bottom:12px">
 
-
 <label>Weitere Informationen</label>
 <textarea name="nachricht" rows="5" style="width:100%;padding:10px;margin-bottom:14px"></textarea>
+
+
+<div style="margin:10px 0 14px;font-size:14px;color:#666;">
+<label style="display:flex;gap:10px;align-items:flex-start;">
+<input type="checkbox" name="datenschutz" required style="margin-top:4px;">
+<span>
+Ich bestätige, dass meine Angaben zur Bearbeitung meiner Anfrage und zur Vermittlung geeigneter Mietinteressenten verwendet werden dürfen.
+Weitere Informationen in der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>.
+</span>
+</label>
+</div>
+
 
 <button class="btn" type="submit">
 Wohnung senden
@@ -78,8 +68,11 @@ Wohnung senden
 
 </form>
 
+<div class="small" style="margin-top:10px;color:var(--muted);">
+Kontakt: <a href="mailto:info@mietmatch-zuerich.ch">info@mietmatch-zuerich.ch</a>
 </div>
 
 </div>
 
+</div>
 </section>
