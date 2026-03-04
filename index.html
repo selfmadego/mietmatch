@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>MietMatch – Geprüfte Mieter. Weniger Besichtigungen.</title>
+  <title>MietMatch – Wohnung einreichen. Top-Mieter statt 30 Besichtigungen.</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -32,7 +32,7 @@
 
 
 <!-- =========================
-     HERO
+     HERO (CTA glasklar)
      ========================= -->
 <header class="hero">
   <div class="container">
@@ -41,20 +41,54 @@
       ✅ Vorqualifizierung vor Besichtigung · 📍 Raum Zürich
     </div>
 
-    <h1>Verschwenden Sie keine Zeit mehr mit 30 Besichtigungen.</h1>
+    <h1>Wohnung einreichen. Nur passende Mieterprofile erhalten.</h1>
 
     <p class="sub">
-      MietMatch qualifiziert Mietinteressenten vor der Besichtigung.
-      Sie erhalten nur passende, strukturierte Mieterprofile.
+      MietMatch filtert vor der Besichtigung nach Budget & Basis-Fit.
+      Sie sparen Zeit, reduzieren No-Shows und bekommen strukturierte Kandidaten.
     </p>
 
     <div class="cta-row">
       <a class="btn" href="#formular">Wohnung einreichen</a>
-      <a class="btn secondary" href="mieter.html">Infos für Mieter</a>
+      <a class="btn secondary" href="mieter.html">Für Mieter</a>
+    </div>
+
+    <div class="small" style="margin-top:10px;color:var(--muted);">
+      Pilotphase: <b>99 CHF nur bei erfolgreicher Vermittlung</b> · Keine Vorauszahlung
     </div>
 
   </div>
 </header>
+
+
+<!-- =========================
+     SPLIT (glasklar: Vermieter vs Mieter)
+     ========================= -->
+<section class="section alt">
+  <div class="container">
+
+    <div class="grid steps" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+
+      <div class="card">
+        <h3 style="margin-top:0;">Für Vermieter</h3>
+        <p class="sub" style="margin:10px 0 14px;">
+          Wohnung einreichen und passende, vorqualifizierte Kandidaten erhalten.
+        </p>
+        <a class="btn" href="#formular">Wohnung einreichen</a>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0;">Für Mieter</h3>
+        <p class="sub" style="margin:10px 0 14px;">
+          Profil erstellen und nur bei passenden Wohnungen vorgeschlagen werden.
+        </p>
+        <a class="btn secondary" href="mieter.html">Profil erstellen</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 
 <!-- =========================
@@ -149,28 +183,7 @@
 
 
 <!-- =========================
-     RECHTLICHER MINI-SCHUTZ
-     ========================= -->
-<section class="section">
-  <div class="container">
-
-    <h2>Rechtlicher Mini-Schutz</h2>
-
-    <div class="card" style="margin-top:14px;">
-      <p class="sub" style="margin:0;">
-        Eine Vermittlungsgebühr wird nur fällig, wenn ein durch MietMatch vorgeschlagener
-        Mietinteressent einen Mietvertrag erhält.
-      </p>
-      <div class="small" style="margin-top:8px;color:var(--muted);">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- =========================
-     FORMULAR (Vermieter)
+     FORMULAR (Vermieter) – erweitert
      ========================= -->
 <section class="section" id="formular">
   <div class="container">
@@ -183,7 +196,7 @@
 
     <div class="card">
 
-      <form action="https://formspree.io/f/mbdanavy" method="POST">
+      <form action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
         <!-- ✅ Eindeutige Unterscheidung in deinen Mails -->
         <input type="hidden" name="lead_type" value="VERMIETER_WOHNUNG">
 
@@ -199,11 +212,27 @@
         <label>Adresse der Wohnung *</label>
         <input type="text" name="adresse" required style="width:100%;padding:10px;margin-bottom:12px">
 
-        <label>Anzahl Zimmer</label>
-        <input type="text" name="zimmer" style="width:100%;padding:10px;margin-bottom:12px">
+        <label>Anzahl Zimmer *</label>
+        <input type="text" name="zimmer" required style="width:100%;padding:10px;margin-bottom:12px">
 
-        <label>Monatsmiete (CHF)</label>
-        <input type="text" name="miete" style="width:100%;padding:10px;margin-bottom:12px">
+        <label>Monatsmiete (CHF) *</label>
+        <input type="text" name="miete" required style="width:100%;padding:10px;margin-bottom:12px">
+
+        <label>Einzug ab</label>
+        <input type="date" name="einzugsdatum" style="width:100%;padding:10px;margin-bottom:12px">
+
+        <label>Haustiere erlaubt?</label>
+        <select name="haustiere" style="width:100%;padding:10px;margin-bottom:12px">
+          <option value="">Bitte wählen</option>
+          <option value="ja">Ja</option>
+          <option value="nein">Nein</option>
+        </select>
+
+        <label>Virtuelle Tour (Matterport / Video Link)</label>
+        <input type="url" name="tour_link" placeholder="https://..." style="width:100%;padding:10px;margin-bottom:12px">
+
+        <label>Fotos der Wohnung</label>
+        <input type="file" name="fotos" accept="image/*" multiple style="width:100%;padding:10px;margin-bottom:12px">
 
         <label>Weitere Informationen</label>
         <textarea name="nachricht" rows="5" style="width:100%;padding:10px;margin-bottom:14px"></textarea>
