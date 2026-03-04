@@ -28,8 +28,17 @@ Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
 <label>Anzahl Zimmer *</label>
 <input type="text" name="zimmer" required style="width:100%;padding:10px;margin-bottom:12px">
 
+<label>Wohnungsgrösse (m²)</label>
+<input type="number" name="qm" min="0" step="1" placeholder="z.B. 72" style="width:100%;padding:10px;margin-bottom:12px">
+
 <label>Monatsmiete (CHF) *</label>
-<input type="text" name="miete" required style="width:100%;padding:10px;margin-bottom:12px">
+<input type="number" name="miete" min="0" step="1" placeholder="z.B. 2200" required style="width:100%;padding:10px;margin-bottom:12px">
+
+<label>Maximale Anzahl Personen</label>
+<input type="number" name="max_personen" min="1" step="1" placeholder="z.B. 2" style="width:100%;padding:10px;margin-bottom:12px">
+
+<label>Gewünschtes Haushaltseinkommen (CHF/Monat)</label>
+<input type="number" name="income_min" min="0" step="1" placeholder="z.B. 6500" style="width:100%;padding:10px;margin-bottom:12px">
 
 <label>Einzugsdatum</label>
 <input type="date" name="einzugsdatum" style="width:100%;padding:10px;margin-bottom:12px">
@@ -50,17 +59,15 @@ Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
 <label>Weitere Informationen</label>
 <textarea name="nachricht" rows="5" style="width:100%;padding:10px;margin-bottom:14px"></textarea>
 
-
 <div style="margin:10px 0 14px;font-size:14px;color:#666;">
 <label style="display:flex;gap:10px;align-items:flex-start;">
 <input type="checkbox" name="datenschutz" required style="margin-top:4px;">
 <span>
 Ich bestätige, dass meine Angaben zur Bearbeitung meiner Anfrage und zur Vermittlung geeigneter Mietinteressenten verwendet werden dürfen.
-Weitere Informationen in der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>.
+Weitere Informationen in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.
 </span>
 </label>
 </div>
-
 
 <button class="btn" type="submit">
 Wohnung senden
