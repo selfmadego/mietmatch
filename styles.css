@@ -64,3 +64,32 @@ ul{margin:10px 0 0 18px;color:var(--muted);line-height:1.7}
 .small{font-size:13px;color:var(--muted)}
 .notice{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius);background:white}
 .notice b{color:var(--blue)}
+/* ===== Formular: überall gleiche Optik ===== */
+form label{
+  display:block;
+  font-weight:600;
+  margin:12px 0 6px;
+}
+
+form input,
+form select,
+form textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #d9d9d9;
+  border-radius:10px;
+  font: inherit;
+  background:#fff;
+  box-sizing:border-box;
+}
+
+form textarea{ min-height:120px; }
+
+form input[type="file"]{
+  padding:8px;
+}
+
+form input[type="checkbox"]{
+  width:auto;
+  margin-right:8px;
+}
