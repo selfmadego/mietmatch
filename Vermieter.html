@@ -1,140 +1,242 @@
-<section class="section" id="formular">
-<div class="container">
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MietMatch – Vermieter: Wohnung einreichen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-<h2>Wohnung einreichen</h2>
+<body>
 
-<p class="sub">
-Einfach starten – wir melden uns innerhalb von 24–48 Stunden.
-</p>
+<div class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="mietmatch-logo.svg" alt="MietMatch Logo">
+    </a>
 
-<div class="card">
-
-<form id="vermieterForm" action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
-
-<input type="hidden" name="lead_type" value="VERMIETER_WOHNUNG">
-
-<label>Name *</label>
-<input type="text" name="name" required style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>E-Mail *</label>
-<input type="email" name="email" required style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Telefon</label>
-<input type="tel" name="telefon" style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Adresse der Wohnung *</label>
-<input type="text" name="adresse" required style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Anzahl Zimmer *</label>
-<input type="text" name="zimmer" required style="width:100%;padding:10px;margin-bottom:12px">
-
-
-<label>Wohnungsgrösse (m²)</label>
-<input type="number" name="qm" min="0" step="1" placeholder="z.B. 72" style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Maximale Anzahl Personen</label>
-<input type="number" name="max_personen" min="1" step="1" placeholder="z.B. 2" style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Gewünschtes Haushaltseinkommen (CHF/Monat)</label>
-<input type="number" name="income_min" min="0" step="1" placeholder="z.B. 6500" style="width:100%;padding:10px;margin-bottom:12px">
-
-
-<label>Monatsmiete (CHF) *</label>
-<input type="number" name="miete" min="0" step="1" placeholder="z.B. 2200" required style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Kaution (CHF)</label>
-<input type="number" name="kaution" min="0" step="1" placeholder="z.B. 6600" style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Mindestmietdauer (Monate)</label>
-<input type="number" name="mindestmietdauer" min="0" step="1" placeholder="z.B. 12" style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Einzugsdatum</label>
-<input type="date" name="einzugsdatum" style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Möbliert?</label>
-<select name="moebliert" style="width:100%;padding:10px;margin-bottom:12px">
-<option value="">Bitte wählen</option>
-<option value="ja">Ja</option>
-<option value="nein">Nein</option>
-</select>
-
-<label>WG erlaubt?</label>
-<select name="wg_erlaubt" style="width:100%;padding:10px;margin-bottom:12px">
-<option value="">Bitte wählen</option>
-<option value="ja">Ja</option>
-<option value="nein">Nein</option>
-</select>
-
-<label>Parkplatz / Garage verfügbar?</label>
-<select name="parkplatz" style="width:100%;padding:10px;margin-bottom:12px">
-<option value="">Bitte wählen</option>
-<option value="ja">Ja</option>
-<option value="nein">Nein</option>
-</select>
-
-<label>Haustiere erlaubt?</label>
-<select name="haustiere" style="width:100%;padding:10px;margin-bottom:12px">
-<option value="">Bitte wählen</option>
-<option value="ja">Ja</option>
-<option value="nein">Nein</option>
-</select>
-
-<label>Virtuelle Tour (Matterport / Video Link)</label>
-<input type="url" name="tour_link" placeholder="https://..." style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Fotos der Wohnung</label>
-<input type="file" name="fotos" accept="image/*" multiple style="width:100%;padding:10px;margin-bottom:12px">
-
-<label>Weitere Informationen</label>
-<textarea name="nachricht" rows="5" style="width:100%;padding:10px;margin-bottom:14px"></textarea>
-
-<div style="margin:10px 0 14px;font-size:14px;color:#666;">
-<label style="display:flex;gap:10px;align-items:flex-start;">
-<input type="checkbox" name="datenschutz" required style="margin-top:4px;">
-<span>
-Ich bestätige, dass meine Angaben zur Bearbeitung meiner Anfrage und zur Vermittlung geeigneter Mietinteressenten verwendet werden dürfen.
-Weitere Informationen in der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>.
-</span>
-</label>
+    <div class="links">
+      <a href="index.html">Start</a>
+      <a href="mieter.html">Für Mieter</a>
+      <a class="btn" href="#formular">Wohnung einreichen</a>
+    </div>
+  </div>
 </div>
 
-<button class="btn" type="submit">
-Wohnung senden
-</button>
 
-</form>
+<header class="hero">
+  <div class="container">
+    <div class="kicker">✅ Vorqualifizierung · 📍 Raum Zürich</div>
+    <h1>Wohnung einreichen</h1>
+    <p class="sub">
+      Sie erhalten in der Regel <b>5–15 passende Mieterprofile</b>. Wir melden uns innerhalb von <b>24–48 Stunden</b>.
+    </p>
+  </div>
+</header>
 
-<div class="small" style="margin-top:10px;color:var(--muted);">
-Kontakt: <a href="mailto:info@mietmatch-zuerich.ch">info@mietmatch-zuerich.ch</a>
-</div>
 
-</div>
-
-</div>
+<section class="section alt" id="pilot">
+  <div class="container">
+    <div class="card">
+      <h3 style="margin-top:0;">Pilotphase Zürich</h3>
+      <p class="sub" style="margin:0;">
+        Kosten entstehen nur, wenn ein durch MietMatch vorgeschlagener Kandidat die Wohnung erhält.
+      </p>
+      <div style="margin-top:10px;">
+        <b>Pilotphase:</b> <span style="color:var(--blue);font-weight:800;">99 CHF</span> pro erfolgreicher Vermittlung.
+      </div>
+      <div class="small" style="margin-top:8px;">
+        Keine Vorauszahlung · Keine Verpflichtung · Keine Provision bei reiner Vorstellung
+      </div>
+    </div>
+  </div>
 </section>
 
+
+<section class="section" id="formular">
+  <div class="container">
+
+    <h2>Wohnung einreichen</h2>
+    <p class="sub">Bitte füllen Sie die Eckdaten aus. Je klarer die Angaben, desto besser das Matching.</p>
+
+    <div class="card" style="margin-top:14px;">
+
+      <form id="vermieterForm" action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="lead_type" value="VERMIETER_WOHNUNG">
+
+        <div class="form-grid">
+
+          <div>
+            <label>Name *</label>
+            <input type="text" name="name" required>
+          </div>
+
+          <div>
+            <label>E-Mail *</label>
+            <input type="email" name="email" required>
+          </div>
+
+          <div>
+            <label>Telefon</label>
+            <input type="tel" name="telefon">
+          </div>
+
+          <div>
+            <label>Anzahl Zimmer *</label>
+            <input type="text" name="zimmer" required placeholder="z.B. 3.5">
+          </div>
+
+          <div class="span-2">
+            <label>Adresse der Wohnung *</label>
+            <input type="text" name="adresse" required placeholder="Strasse, PLZ, Ort">
+          </div>
+
+          <div>
+            <label>Monatsmiete (CHF) *</label>
+            <input type="number" name="miete" min="0" step="1" required placeholder="z.B. 2200">
+          </div>
+
+          <div>
+            <label>Einzug ab</label>
+            <input type="date" name="einzug_ab">
+          </div>
+
+          <div>
+            <label>Haustiere erlaubt?</label>
+            <select name="haustiere">
+              <option value="">Bitte wählen</option>
+              <option value="ja">Ja</option>
+              <option value="nein">Nein</option>
+              <option value="nach_absprache">Nach Absprache</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Möbliert?</label>
+            <select name="moebliert">
+              <option value="">Bitte wählen</option>
+              <option value="ja">Ja</option>
+              <option value="nein">Nein</option>
+            </select>
+          </div>
+
+          <div>
+            <label>WG erlaubt?</label>
+            <select name="wg_erlaubt">
+              <option value="">Bitte wählen</option>
+              <option value="ja">Ja</option>
+              <option value="nein">Nein</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Parkplatz / Garage?</label>
+            <select name="parkplatz">
+              <option value="">Bitte wählen</option>
+              <option value="ja">Ja</option>
+              <option value="nein">Nein</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Kaution (CHF)</label>
+            <input type="number" name="kaution" min="0" step="1" placeholder="z.B. 6600">
+          </div>
+
+          <div>
+            <label>Mindestmietdauer (Monate)</label>
+            <input type="number" name="mindestmietdauer" min="0" step="1" placeholder="z.B. 12">
+          </div>
+
+          <div class="span-2">
+            <label>Virtuelle Tour (Matterport / Video Link)</label>
+            <input type="url" name="tour_link" placeholder="https://...">
+          </div>
+
+          <div class="span-2">
+            <label>Fotos der Wohnung</label>
+            <input type="file" name="fotos" accept="image/*" multiple>
+            <div class="small" style="margin-top:6px;">Falls Upload nicht klappt: Link im Textfeld unten einfügen (Drive/Dropbox).</div>
+          </div>
+
+          <div class="span-2">
+            <label>Weitere Informationen</label>
+            <textarea name="nachricht" placeholder="z.B. Stockwerk, Lift, Haustierregel, Besonderheiten, Link zu Fotos/Ordner..."></textarea>
+          </div>
+
+          <div class="span-2">
+            <label class="dsg-check">
+              <input type="checkbox" name="datenschutz_ok" required>
+              <span>
+                Ich bestätige, dass meine Angaben zur Bearbeitung meiner Anfrage und zur Vermittlung geeigneter Mietinteressenten verwendet werden dürfen.
+                Details siehe <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.
+              </span>
+            </label>
+          </div>
+
+          <div class="span-2 form-actions">
+            <button class="btn" type="submit">Wohnung senden</button>
+            <div class="form-note">Antwort in 24–48h · i. d. R. 5–15 passende Profile</div>
+          </div>
+
+        </div>
+      </form>
+
+      <div class="small" style="margin-top:12px;">
+        Kontakt: <a href="mailto:info@mietmatch-zuerich.ch">info@mietmatch-zuerich.ch</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<div class="hr"></div>
+
+<div class="footer container">
+  <div><b style="color:var(--blue)">MietMatch</b> – Pilotprojekt Zürich</div>
+
+  <div class="small">
+    Kontakt:
+    <a href="mailto:info@mietmatch-zuerich.ch">info@mietmatch-zuerich.ch</a>
+  </div>
+
+  <div class="small" style="margin-top:8px">
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</div>
+
+
 <script>
-const form = document.getElementById("vermieterForm");
+  (function () {
+    const form = document.getElementById("vermieterForm");
+    if (!form) return;
 
-form.addEventListener("submit", async function(e) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-e.preventDefault();
+      const data = new FormData(form);
 
-const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
 
-const response = await fetch(form.action,{
-method:"POST",
-body:data,
-headers:{
-'Accept':'application/json'
-}
-});
-
-if(response.ok){
-window.location.href="danke.html";
-}else{
-alert("Senden fehlgeschlagen. Bitte nochmals versuchen.");
-}
-
-});
+        if (res.ok) {
+          window.location.href = "danke.html";
+        } else {
+          alert("Senden fehlgeschlagen. Bitte kurz prüfen und nochmals senden.");
+        }
+      } catch (err) {
+        alert("Netzwerkfehler. Bitte nochmals versuchen.");
+      }
+    });
+  })();
 </script>
+
+</body>
+</html>
