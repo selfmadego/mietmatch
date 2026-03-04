@@ -5,6 +5,37 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MietMatch – Wohnung einreichen. Top-Mieter statt 30 Besichtigungen.</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- ===== Formular: überall gleiche Optik (fix für "hässliche Schrift") ===== -->
+  <style>
+    form label{
+      display:block;
+      font-weight:600;
+      margin:12px 0 6px;
+    }
+    form input, form select, form textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid #d9d9d9;
+      border-radius:10px;
+      font: inherit;
+      background:#fff;
+      box-sizing:border-box;
+      margin-bottom:12px;
+    }
+    form textarea{ min-height:120px; margin-bottom:14px; }
+    form input[type="file"]{ padding:8px; }
+    form input[type="checkbox"]{ width:auto; margin:0 8px 0 0; }
+    .dsg-check{
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      margin:10px 0 14px;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.4;
+    }
+  </style>
 </head>
 
 <body>
@@ -62,7 +93,7 @@
 
 
 <!-- =========================
-     SPLIT (glasklar: Vermieter vs Mieter)
+     SPLIT (reduziert: keine extra Buttons)
      ========================= -->
 <section class="section alt">
   <div class="container">
@@ -71,18 +102,16 @@
 
       <div class="card">
         <h3 style="margin-top:0;">Für Vermieter</h3>
-        <p class="sub" style="margin:10px 0 14px;">
+        <p class="sub" style="margin:10px 0 0;">
           Wohnung einreichen und passende, vorqualifizierte Kandidaten erhalten.
         </p>
-        <a class="btn" href="Vermieter.html">Wohnung einreichen</a>
       </div>
 
       <div class="card">
         <h3 style="margin-top:0;">Für Mieter</h3>
-        <p class="sub" style="margin:10px 0 14px;">
+        <p class="sub" style="margin:10px 0 0;">
           Profil erstellen und nur bei passenden Wohnungen vorgeschlagen werden.
         </p>
-        <a class="btn secondary" href="mieter.html">Profil erstellen</a>
       </div>
 
     </div>
@@ -183,9 +212,10 @@
 
 
 <!-- =========================
-     FORMULAR (Vermieter) – erweitert
+     FORMULAR (optional auf Startseite)
+     WICHTIG: ID muss "formular" sein, sonst funktionieren #formular Links nicht.
      ========================= -->
-<section class="section" id="Vermieter.html">
+<section class="section" id="formular">
   <div class="container">
 
     <h2>Wohnung einreichen</h2>
@@ -197,45 +227,53 @@
     <div class="card">
 
       <form action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
-        <!-- ✅ Eindeutige Unterscheidung in deinen Mails -->
         <input type="hidden" name="lead_type" value="VERMIETER_WOHNUNG">
 
         <label>Name *</label>
-        <input type="text" name="name" required style="width:100%;padding:10px;margin-bottom:12px">
+        <input type="text" name="name" required>
 
         <label>E-Mail *</label>
-        <input type="email" name="email" required style="width:100%;padding:10px;margin-bottom:12px">
+        <input type="email" name="email" required>
 
         <label>Telefon</label>
-        <input type="tel" name="telefon" style="width:100%;padding:10px;margin-bottom:12px">
+        <input type="tel" name="telefon">
 
         <label>Adresse der Wohnung *</label>
-        <input type="text" name="adresse" required style="width:100%;padding:10px;margin-bottom:12px">
+        <input type="text" name="adresse" required>
 
         <label>Anzahl Zimmer *</label>
-        <input type="text" name="zimmer" required style="width:100%;padding:10px;margin-bottom:12px">
+        <input type="text" name="zimmer" required>
 
         <label>Monatsmiete (CHF) *</label>
-        <input type="text" name="miete" required style="width:100%;padding:10px;margin-bottom:12px">
+        <input type="text" name="miete" required>
 
         <label>Einzug ab</label>
-        <input type="date" name="einzugsdatum" style="width:100%;padding:10px;margin-bottom:12px">
+        <input type="date" name="einzugsdatum">
 
         <label>Haustiere erlaubt?</label>
-        <select name="haustiere" style="width:100%;padding:10px;margin-bottom:12px">
+        <select name="haustiere">
           <option value="">Bitte wählen</option>
           <option value="ja">Ja</option>
           <option value="nein">Nein</option>
         </select>
 
         <label>Virtuelle Tour (Matterport / Video Link)</label>
-        <input type="url" name="tour_link" placeholder="https://..." style="width:100%;padding:10px;margin-bottom:12px">
+        <input type="url" name="tour_link" placeholder="https://...">
 
         <label>Fotos der Wohnung</label>
-        <input type="file" name="fotos" accept="image/*" multiple style="width:100%;padding:10px;margin-bottom:12px">
+        <input type="file" name="fotos" accept="image/*" multiple>
 
         <label>Weitere Informationen</label>
-        <textarea name="nachricht" rows="5" style="width:100%;padding:10px;margin-bottom:14px"></textarea>
+        <textarea name="nachricht" rows="5"></textarea>
+
+        <!-- DSG Checkbox -->
+        <label class="dsg-check">
+          <input type="checkbox" name="dsg_ok" required>
+          <span>
+            Ich bestätige, dass meine Angaben zur Bearbeitung meiner Anfrage und zur Vermittlung passender Mietinteressenten verwendet werden dürfen.
+            Weitere Infos im <a href="datenschutz.html">Datenschutz</a>.
+          </span>
+        </label>
 
         <button class="btn" type="submit">Wohnung senden</button>
       </form>
