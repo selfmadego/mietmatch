@@ -1,88 +1,3 @@
-<!doctype html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MietMatch – Für Mieter</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
-<div class="nav">
-<div class="container nav-inner">
-
-<a class="brand" href="index.html">
-<img src="mietmatch-logo.svg" alt="MietMatch Logo">
-</a>
-
-<div class="links">
-<a href="index.html">Für Vermieter</a>
-<a class="btn" href="#profil">Profil erstellen</a>
-</div>
-
-</div>
-</div>
-
-
-<header class="hero">
-
-<div class="container">
-
-<div class="kicker">✅ Pilotphase · 📍 Raum Zürich</div>
-
-<h1>Schluss mit Bewerbungen ohne Antwort.</h1>
-
-<p class="sub">
-Du investierst Zeit, schreibst 20 Anfragen, gehst an Besichtigungen – und bekommst trotzdem Absagen.
-MietMatch dreht den Prozess um.
-</p>
-
-<div class="cta-row">
-<a class="btn" href="#profil">Profil kostenlos erstellen</a>
-<a class="btn secondary" href="index.html">Infos für Vermieter</a>
-</div>
-
-</div>
-
-</header>
-
-
-
-<section class="section">
-
-<div class="container">
-
-<h2>So funktioniert MietMatch</h2>
-
-<div class="grid steps" style="margin-top:16px">
-
-<div class="card">
-<div class="step-num">1</div>
-<h3>Profil erstellen</h3>
-<p>Einkommen, Einzugsdatum, Haushaltsgrösse und Wunschregion hinterlegen.</p>
-</div>
-
-<div class="card">
-<div class="step-num">2</div>
-<h3>Vorqualifizierung</h3>
-<p>Wir prüfen, ob dein Budget zur Wohnung passt.</p>
-</div>
-
-<div class="card">
-<div class="step-num">3</div>
-<h3>Passende Vermittlungen</h3>
-<p>Du wirst nur Vermietern vorgestellt, bei denen realistische Chancen bestehen.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
 <section class="section" id="profil">
 
 <div class="container">
@@ -93,31 +8,42 @@ MietMatch dreht den Prozess um.
 Sende uns dein Profil – wir melden uns bei passenden Wohnungen.
 </p>
 
-
 <div class="card" style="margin-top:14px">
 
-<form action="https://formspree.io/f/mbdanavy" method="POST">
+<form action="https://formspree.io/f/mbdanavy" method="POST" enctype="multipart/form-data">
 
-<label>Name</label>
+<label>Name *</label>
 <input type="text" name="name" required style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>E-Mail</label>
+<label>E-Mail *</label>
 <input type="email" name="email" required style="width:100%;padding:10px;margin-bottom:12px">
 
 <label>Telefon</label>
 <input type="tel" name="telefon" style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>Monatliches Einkommen (CHF)</label>
-<input type="text" name="einkommen" style="width:100%;padding:10px;margin-bottom:12px">
+<label>Monatliches Einkommen (CHF) *</label>
+<input type="number" name="einkommen" required style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>Einzugsdatum</label>
-<input type="text" name="einzugsdatum" placeholder="z.B. 01.05.2026" style="width:100%;padding:10px;margin-bottom:12px">
+<label>Einzugsdatum *</label>
+<input type="date" name="einzugsdatum" required style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>Haushaltsgrösse</label>
-<input type="text" name="haushalt" style="width:100%;padding:10px;margin-bottom:12px">
+<label>Haushaltsgrösse *</label>
+<input type="number" name="haushalt" required style="width:100%;padding:10px;margin-bottom:12px">
 
-<label>Gewünschte Region</label>
-<input type="text" name="region" placeholder="z.B. Zürich, Winterthur" style="width:100%;padding:10px;margin-bottom:12px">
+<label>Gewünschte Region *</label>
+<input type="text" name="region" placeholder="z.B. Zürich, Winterthur, Uster" required style="width:100%;padding:10px;margin-bottom:12px">
+
+<label>Betreibungsauszug (Pflicht) *</label>
+<input 
+type="file"
+name="betreibungsauszug"
+accept=".pdf,.jpg,.jpeg,.png"
+required
+style="width:100%;padding:10px;margin-bottom:12px">
+
+<p style="font-size:14px;color:#666;margin-top:-6px;margin-bottom:16px">
+Bitte lade deinen aktuellen Betreibungsauszug hoch. Ohne dieses Dokument kann das Profil nicht eingereicht werden.
+</p>
 
 <label>Weitere Informationen</label>
 <textarea name="nachricht" rows="5" style="width:100%;padding:10px;margin-bottom:14px"></textarea>
@@ -133,57 +59,3 @@ Profil senden
 </div>
 
 </section>
-
-
-
-<section class="section alt">
-
-<div class="container">
-
-<h2>Einwilligung & Datenschutz</h2>
-
-<div class="card">
-
-<p class="sub" style="margin:0">
-Mit der Registrierung willigst du ein, dass MietMatch deine Angaben zum Zweck der Vermittlung verarbeitet
-und diese im konkreten Vermittlungsfall an passende Vermieter übermittelt.
-Du kannst die Einwilligung jederzeit widerrufen und die Löschung deiner Daten verlangen.
-</p>
-
-<div class="cta-row" style="margin-top:14px">
-<a class="btn secondary" href="datenschutz.html">Datenschutz lesen</a>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<div class="hr"></div>
-
-<div class="footer container">
-
-<div>
-<b style="color:var(--blue)">MietMatch</b> – Pilotprojekt Zürich
-</div>
-
-<div class="small">
-Kontakt:
-<a href="mailto:info@mietmatch-zuerich.ch">
-info@mietmatch-zuerich.ch
-</a>
-</div>
-
-<div class="small" style="margin-top:8px">
-<a href="impressum.html">Impressum</a> ·
-<a href="datenschutz.html">Datenschutz</a> ·
-<a href="mieter.html">Für Mieter</a>
-</div>
-
-</div>
-
-</body>
-</html>
