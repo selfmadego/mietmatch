@@ -97,6 +97,8 @@ Erstelle dein Profil – wir melden uns bei passenden Wohnungen.
 
 <form action="https://formspree.io/f/xlgwqpaw" method="POST">
 
+<!-- Klare Kennzeichnung für deine Inbox -->
+<input type="hidden" name="form_typ" value="MIETER_PROFIL">
 <input type="hidden" name="lead_type" value="MIETER_PROFIL">
 
 <label>Name *</label>
@@ -226,35 +228,11 @@ Datenschutz lesen
 
 
 
-<div class="hr"></div>
-
-<div class="footer container">
-
-<div>
-<b style="color:var(--blue)">MietMatch</b> – Pilotprojekt Zürich
-</div>
-
-<div class="small">
-Kontakt:
-<a href="mailto:info@mietmatch-zuerich.ch">
-info@mietmatch-zuerich.ch
-</a>
-</div>
-
-<div class="small" style="margin-top:8px">
-<a href="impressum.html">Impressum</a> ·
-<a href="datenschutz.html">Datenschutz</a> ·
-<a href="mieter.html">Für Mieter</a>
-</div>
-
-</div>
-
-
 <!-- =========================
-     MATCHING TEST (PRO)
-     Direkt vor </body>
+     MATCHING TEST (ADMIN) - VERSTECKT
+     Sichtbar nur mit ?admin=1
      ========================= -->
-<section class="section alt" id="matching-test" style="padding-top:18px;">
+<section class="section alt" id="matching-test" style="padding-top:18px; display:none;">
   <div class="container">
 
     <h2>Matching Test (Admin)</h2>
@@ -279,8 +257,17 @@ info@mietmatch-zuerich.ch
 </section>
 
 <script>
-  // ✅ HIER DEINE WEB-APP URL EINFÜGEN (endet mit /exec)
+  // ✅ HIER DEINE WEB-APP URL (endet mit /exec)
   const API_URL = "https://script.google.com/macros/s/AKfycbzBPFAqUgj5m6aK__dl_Dqm4OMgXDlBQfczAh0-pTVG0Ra27RVnpf3PMPUIFXD8uVhl/exec";
+
+  // Admin-Sichtbarkeit: nur wenn ?admin=1
+  (function(){
+    const params = new URLSearchParams(window.location.search);
+    if(params.get("admin") === "1"){
+      const sec = document.getElementById("matching-test");
+      if(sec) sec.style.display = "block";
+    }
+  })();
 
   function esc(s){
     return String(s ?? "")
@@ -363,6 +350,31 @@ info@mietmatch-zuerich.ch
     }
   }
 </script>
+
+
+
+<div class="hr"></div>
+
+<div class="footer container">
+
+<div>
+<b style="color:var(--blue)">MietMatch</b> – Pilotprojekt Zürich
+</div>
+
+<div class="small">
+Kontakt:
+<a href="mailto:info@mietmatch-zuerich.ch">
+info@mietmatch-zuerich.ch
+</a>
+</div>
+
+<div class="small" style="margin-top:8px">
+<a href="impressum.html">Impressum</a> ·
+<a href="datenschutz.html">Datenschutz</a> ·
+<a href="mieter.html">Für Mieter</a>
+</div>
+
+</div>
 
 </body>
 </html>
