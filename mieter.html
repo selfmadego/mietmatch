@@ -97,7 +97,6 @@ Erstelle dein Profil – wir melden uns bei passenden Wohnungen.
 
 <form action="https://formspree.io/f/xlgwqpaw" method="POST">
 
-<!-- Klare Kennzeichnung für deine Inbox -->
 <input type="hidden" name="form_typ" value="MIETER_PROFIL">
 <input type="hidden" name="lead_type" value="MIETER_PROFIL">
 
@@ -127,6 +126,50 @@ Erstelle dein Profil – wir melden uns bei passenden Wohnungen.
 
 <label>Maximale Miete (CHF)</label>
 <input type="number" name="max_miete" style="width:100%;padding:10px;margin-bottom:12px">
+
+
+<!-- NEUE MATCHING FELDER -->
+
+<label>Haustiere?</label>
+<select name="haustiere" style="width:100%;padding:10px;margin-bottom:12px">
+<option value="">Bitte wählen</option>
+<option value="nein">Nein</option>
+<option value="hund">Hund</option>
+<option value="katze">Katze</option>
+<option value="andere">Andere</option>
+</select>
+
+<label>Möbliert?</label>
+<select name="moebliert" style="width:100%;padding:10px;margin-bottom:12px">
+<option value="">Bitte wählen</option>
+<option value="ja">Ja</option>
+<option value="nein">Nein</option>
+<option value="egal">Egal</option>
+</select>
+
+<label>WG erlaubt?</label>
+<select name="wg" style="width:100%;padding:10px;margin-bottom:12px">
+<option value="">Bitte wählen</option>
+<option value="ja">Ja</option>
+<option value="nein">Nein</option>
+<option value="egal">Egal</option>
+</select>
+
+<label>Parkplatz / Garage?</label>
+<select name="parkplatz" style="width:100%;padding:10px;margin-bottom:12px">
+<option value="">Bitte wählen</option>
+<option value="ja">Ja</option>
+<option value="nein">Nein</option>
+<option value="egal">Egal</option>
+</select>
+
+<label>Rauchen?</label>
+<select name="rauchen" style="width:100%;padding:10px;margin-bottom:12px">
+<option value="">Bitte wählen</option>
+<option value="ja">Ja</option>
+<option value="nein">Nein</option>
+</select>
+
 
 <label>Weitere Informationen</label>
 <textarea name="nachricht" rows="5" style="width:100%;padding:10px;margin-bottom:14px"></textarea>
@@ -195,161 +238,6 @@ Nur vollständige Profile können an Vermieter vermittelt werden.
 </div>
 
 </section>
-
-
-
-<section class="section alt">
-
-<div class="container">
-
-<h2>Einwilligung & Datenschutz</h2>
-
-<div class="card">
-
-<p class="sub" style="margin:0">
-Mit der Registrierung willigst du ein, dass MietMatch deine Angaben
-zum Zweck der Vermittlung verarbeitet und im konkreten Vermittlungsfall
-an passende Vermieter übermittelt.
-Du kannst die Einwilligung jederzeit widerrufen und die Löschung deiner
-Daten verlangen.
-</p>
-
-<div class="cta-row" style="margin-top:14px">
-<a class="btn secondary" href="datenschutz.html">
-Datenschutz lesen
-</a>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     MATCHING TEST (ADMIN) - VERSTECKT
-     Sichtbar nur mit ?admin=1
-     ========================= -->
-<section class="section alt" id="matching-test" style="padding-top:18px; display:none;">
-  <div class="container">
-
-    <h2>Matching Test (Admin)</h2>
-    <p class="sub" style="margin-top:6px;">
-      Nur für dich zum Prüfen: Wohnung-ID eingeben → Top 5 passende Mieter mit Score.
-    </p>
-
-    <div class="card" style="margin-top:14px;">
-      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-        <input id="flatId" placeholder="Wohnungs-ID z.B. W001"
-               style="width:220px;padding:10px;border:1px solid #ccc;border-radius:8px;">
-        <button class="btn" type="button" onclick="runMatch()">
-          Matching starten
-        </button>
-      </div>
-
-      <div id="matchStatus" class="small" style="margin-top:10px;color:var(--muted);"></div>
-      <div id="matchResult" style="margin-top:12px;"></div>
-    </div>
-
-  </div>
-</section>
-
-<script>
-  // ✅ HIER DEINE WEB-APP URL (endet mit /exec)
-  const API_URL = "https://script.google.com/macros/s/AKfycbzBPFAqUgj5m6aK__dl_Dqm4OMgXDlBQfczAh0-pTVG0Ra27RVnpf3PMPUIFXD8uVhl/exec";
-
-  // Admin-Sichtbarkeit: nur wenn ?admin=1
-  (function(){
-    const params = new URLSearchParams(window.location.search);
-    if(params.get("admin") === "1"){
-      const sec = document.getElementById("matching-test");
-      if(sec) sec.style.display = "block";
-    }
-  })();
-
-  function esc(s){
-    return String(s ?? "")
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
-  }
-
-  async function runMatch(){
-    const flatId = document.getElementById("flatId").value.trim();
-    const status = document.getElementById("matchStatus");
-    const out = document.getElementById("matchResult");
-
-    if(!flatId){
-      status.textContent = "Bitte Wohnungs-ID eingeben (z.B. W001).";
-      out.innerHTML = "";
-      return;
-    }
-
-    status.textContent = "Matching läuft…";
-    out.innerHTML = "";
-
-    try{
-      const url = API_URL + "?action=match&flatId=" + encodeURIComponent(flatId);
-      const res = await fetch(url);
-      const data = await res.json();
-
-      if(!data.ok){
-        status.textContent = "Fehler: " + (data.error || "Unbekannt");
-        return;
-      }
-
-      const top = data.top5 || [];
-      status.textContent = `Wohnung ${esc(flatId)} → ${top.length} Top-Mieter (gesamt passend: ${data.totalEligible ?? "?"})`;
-
-      if(top.length === 0){
-        out.innerHTML = `<div class="small" style="color:var(--muted)">Keine passenden Mieter gefunden.</div>`;
-        return;
-      }
-
-      let html = `<div style="display:grid;gap:10px;margin-top:8px;">`;
-
-      top.forEach((m, i) => {
-        const reasons = Array.isArray(m.reasons) ? m.reasons.map(esc).join(" · ") : "";
-        html += `
-          <div style="border:1px solid #eee;border-radius:10px;padding:12px;">
-            <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-              <div>
-                <b>#${i+1} ${esc(m.name)}</b>
-                <div class="small" style="color:var(--muted);margin-top:4px;">
-                  Stadt: ${esc(m.city)} · Zimmer-Wunsch: ${esc(m.rooms_wanted)} · Haustiere: ${esc(m.pets)} · Status: ${esc(m.status)}
-                </div>
-              </div>
-              <div style="text-align:right;">
-                <div><b>Score: ${esc(m.score)}</b></div>
-                <div class="small" style="color:var(--muted);">Einkommen: CHF ${esc(m.income)}</div>
-              </div>
-            </div>
-
-            <div style="margin-top:10px;">
-              <div class="small" style="color:var(--muted);">Kontakt</div>
-              <div style="margin-top:4px;">
-                <a href="mailto:${esc(m.email)}">${esc(m.email)}</a>
-                ${m.phone ? ` · <span>${esc(m.phone)}</span>` : ""}
-              </div>
-            </div>
-
-            ${reasons ? `<div class="small" style="margin-top:10px;color:var(--muted)">Warum passt’s: ${reasons}</div>` : ""}
-          </div>
-        `;
-      });
-
-      html += `</div>`;
-      out.innerHTML = html;
-
-    } catch(err){
-      status.textContent = "API Fehler (URL falsch oder Zugriff blockiert).";
-    }
-  }
-</script>
 
 
 
