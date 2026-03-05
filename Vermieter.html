@@ -101,6 +101,22 @@
             <input type="date" name="einzug_ab">
           </div>
 
+          <!-- =========================
+               INSERAT (optional) – Copy/Paste Shortcut
+               ========================= -->
+          <div class="span-2">
+            <label>Inserat-Link (optional)</label>
+            <input type="url" name="inserat_link" placeholder="z.B. Homegate / ImmoScout Link">
+          </div>
+
+          <div class="span-2">
+            <label>Inserat-Text / Exposé (optional)</label>
+            <textarea name="inserat_text" placeholder="Copy & Paste des Inserats (Beschreibung, Eckdaten etc.)"></textarea>
+            <div class="small" style="margin-top:6px;color:var(--muted);line-height:1.4;">
+              Wenn Sie einen Link oder Text einfügen, übernehmen wir die Daten für Sie.
+            </div>
+          </div>
+
           <div>
             <label>Haustiere erlaubt?</label>
             <select name="haustiere">
@@ -135,6 +151,17 @@
               <option value="">Bitte wählen</option>
               <option value="ja">Ja</option>
               <option value="nein">Nein</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Rauchen erlaubt?</label>
+            <select name="rauchen_erlaubt">
+              <option value="">Bitte wählen</option>
+              <option value="ja">Ja</option>
+              <option value="nein">Nein</option>
+              <option value="nur_balkon">Nur Balkon / Aussenbereich</option>
+              <option value="nach_absprache">Nach Absprache</option>
             </select>
           </div>
 
